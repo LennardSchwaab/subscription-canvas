@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<div align='center'>
+  <h1>Log In</h1>
+  <div class="container-sm">
+    <form method="POST">
+      {{form.hidden_tag()}}
+        <div class="row">
+          <div class="col">
+            </div>
+                <div class="col">
+                  <div class="form-group">
+                    {{form.email.label(class='form-group')}}
+                    {{form.email(class="form-control")}}
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                </div>
+            <div class="col">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+          </div>
+          <div class="col">
+            <div class="form-group">
+              {{form.password.label(class='form-group')}}
+              {{form.password(class='form-control')}}
+            </div>
+          </div>
+          <div class="col">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col"></div>
+          <div class="col">
+            <div class="form-group">
+                {{form.submit(class='btn btn-primary')}}
+            </div>
+          </div>
+          <div class="col"></div>
+        </div>
+        <br>
+              <div class="row">
+          <div class="col"></div>
+            <div class="col"><p> Wenn Sie noch keinen Accout haben, können Sie sich hier registrieren:</p></div>
+          <div class="col"></div>
+        </div>
+        <div class="row">
+          <div class="col"></div>
+          <div class="col"><a class="btn btn-primary" href="{{url_for('users.register')}}">Register</a></div>
+          <div class="col"></div>
+        </div>
+    </form>
+    <br>
+  </div>
+</div>
+
+{% endblock %}

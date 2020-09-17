@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div align='center'>
+        <h1>Registration Page</h1>
+        <p> Bitte registrieren Sie sich hier, um den kostenlosen Quick-Check durchzuführen.</p>
+    </div>
+    <div class="row">
+          <div class="col">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci dignissimos ducimus earum esse exercitationem facere facilis in ipsa nisi nostrum officia, omnis perferendis quaerat quos rem sed sunt? Accusantium, nisi!
+          </div>
+          <div class="col">Wenn Sie bereits registriert sind, können Sie sich direkt einloggen.</div>
+        </div>
+
+<div class="container-sm">
+    <form method="POST">
+    {{form.hidden_tag()}}
+     <div class="row">
+         <div class="col">
+                 <div class="form-group">
+                {{form.email.label(class='form-group')}}
+                {{form.email(class='form-control')}}
+            </div>
+         </div>
+         <div class="col"></div>
+         <div class="col"> </div>
+     </div>
+     <div class="row">
+         <div class="col">
+                <div class="form-group">
+                {{form.username.label(class='form-group')}}
+                {{form.username(class='form-control')}}
+                </div>
+         </div>
+         <div class="col"> </div>
+         <div class="col"> </div>
+     </div>
+
+     <div class="row">
+         <div class="col">
+            <div class="form-group">
+               {{form.password.label(class='form-group')}}
+                {{form.password(class='form-control')}}
+            </div>
+         </div>
+         <div class="col"></div>
+         <div class="col"> </div>
+     </div>
+     <div class="row">
+         <div class="col">
+            <div class="form-group">
+            {{form.pass_confirm.label(class='form-group')}}
+            {{form.pass_confirm(class='form-control')}}
+            </div>
+         </div>
+         <div class="col">
+
+         </div>
+         <div class="col"> </div>
+     </div>
+
+     <div class="row">
+         <div class="col">
+              <div align='center'>
+                 <div class="form-group">
+                    {{form.submit(class='btn btn-primary')}}
+                </div>
+            </div>
+         </div>
+         <div class="col"></div>
+        <div class="col"><a class="btn btn-primary" href="{{url_for('users.login')}}">Log-in</a></div>
+    </div>
+
+    </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <!-- CSS only -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/css/custom.css">
+
+        <!-- JS, Popper.js, and jQuery -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {%block head_content%}
+    {%endblock%}
+
+  <title>Subscription Canvas</title>
+  </head>
+  <body>
+  <div class="p-3 mb-2 bg-dark text-white">
+      <div class="container">FIR E. V. AN DER RWTH AACHEN: WILLKOMMEN BEIM TOOL "SUBSCRIPTION CANVAS"</div>
+  </div>
+
+
+     <nav class="navbar sticky-top navbar-expand-sm navbar-light" style="background-color: #ffffff;" id="mainNav">
+         <div class="container">
+         <a class="navbar-brand" href="https://subscription-canvas.herokuapp.com/">
+                <img align='center' src="{{url_for('static', filename='info_pics/Logo_AK_Subscription Business Management_2020.png')}}" alt="" loading="lazy" height="100">
+            </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse align-items-center" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+         {% if current_user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link"href="{{ url_for('canvas.canvas_overview') }}">Subscription Canvas</a>
+              </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Die Tools</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ url_for('quick_check.quick_check') }}">Tool 1: Quick Check</a>
+                <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ url_for('quick_check.quick_check') }}">Tool 2: tbd...</a>
+                </div>
+
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('core.info') }}">Das Forschungsprojekt</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="https://www.fir.rwth-aachen.de/">Das FIR</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"href="{{url_for('core.kontakt')}}">Kontakt</a>
+                </li>
+
+                <li class="nav-item">
+                </li>
+
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+                <div class="dropdown-menu">
+                    <a class="nav-link"href="{{url_for('users.account')}}">Account</a>
+                   <div class="dropdown-divider"></div>
+                     <a class="nav-link"href="{{url_for('users.logout')}}">Log-out</a>
+                </div>
+              </li>
+
+          {%else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('core.info') }}">Info</a>
+              </li>
+
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{url_for('users.login')}}">Log In</a>
+                   <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{url_for('users.register')}}">Register</a>
+                </div>
+              </li>
+
+          {% endif %}
+            </ul>
+    </div>
+ </div>
+</nav>
+<div class="p-4 mb-3 bg-primary"> </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <div class="jumbotron bg-dark text-white">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+                    <p> <a href="https://www.fir.rwth-aachen.de/datenschutz/" class="text-light">Datenschutz</a> </p>
+            </div>
+            <div class="col">
+                    <div class="text-center">
+                       <a href="https://www.fir.rwth-aachen.de"><img src="https://projekt-lida.de/wp-content/uploads/sites/15/2019/09/lu-fir-rwth-aachen_weiss_projekt-lida.png" alt="" height="50"></a>
+                    </div>
+                <br>
+                <br>
+            </div>
+            <div class="col">
+                      <div class="text-center">
+                        <a href="https://www.wzl.rwth-aachen.de"><img src="https://www.wzl.rwth-aachen.de/global/show_picture.asp?id=aaaaaaaaabdlfcs" alt="" height="50">
+                        </a>
+                    </div>
+                <br>
+                <br>
+            </div>
+              <div class="col">
+                    <div class="text-center">
+                        <a href="http://www.aif.de/"><img src="https://www.fir.rwth-aachen.de/fileadmin/_processed_/1/a/csm_fir-aif-logo_3c3367563f.jpg" alt="" height="50"></a>
+                    </div>
+                  <br>
+                  <br>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+                        <p> <a href="https://www.fir.rwth-aachen.de/impressum/" class="text-light">Impressum</a> </p>
+            </div>
+            <div class="col">
+                      <div class="text-center">
+                        FIR e.V. an der RWTH Aachen
+                    </div>
+            </div>
+            <div class="col">
+                     <div class="text-center">
+                    Werkzeugmaschinenlabor WZL der RWTH Aachen
+                    </div>
+            </div>
+           <div class="col">
+             <p> Projektträger: Arbeitsgemeinschaft industrieller Forschungsvereinigungen e. V.</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+                    <p> <a href=https://www.fir.rwth-aachen.de/kontakt/ class="text-light">Kontakt</a> </p>
+            </div>
+            <div class="col">
+                    <div class="text-center text-reset">
+                        FIR Links oder weitere Infos
+                    </div>
+            </div>
+            <div class="col">
+                  <div class="text-center">
+                        WZL Links oder weitere Infos
+                    </div>
+            </div>
+             <div class="col">
+              Förderkennzeichen: 21201 N
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </body>
+  {%block script_content%}
+  {%endblock%}
+</html>
